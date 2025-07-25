@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Predictor</title>
+    <style>
+        body {
+        background-image: url("/static/bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: Arial;
+        padding: 40px;
+        margin: 0;
+        }
+        .container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type=number] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input[type=submit] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=submit]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Traffic Volume Prediction</h2>
+    <form action="/predict" method="post">
+        {% for field in [
+            'is_holiday', 'temperature', 'weekday', 'hour',
+            'month_day', 'year', 'month', 'weather_type', 'weather_description'
+        ] %}
+            <label>{{ field.replace('_', ' ').title() }}</label>
+            <input type="number" name="{{ field }}" step="any" required>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+</div>
+</body>
+</html>

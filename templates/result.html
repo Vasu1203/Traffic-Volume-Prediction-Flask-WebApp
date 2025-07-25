@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+        background-image: url("/static/bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: Arial;
+        padding: 40px;
+        margin: 0;
+        }
+        .result-box {
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Predicted Traffic Volume: {{ traffic }}</h1>
+        <p><strong>Status:</strong> {{ status }}</p>
+        <a href="/" style="margin-top: 20px; display: inline-block; color: #007bff;">← Predict Again</a>
+    </div>
+</body>
+</html>
